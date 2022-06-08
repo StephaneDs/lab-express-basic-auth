@@ -5,7 +5,7 @@ const router = require("express").Router()
 const saltRounds = 10
 /* GET default route */
 router.get("/", (req, res, next) => {
-  res.json({ success: true })
+  res.json({ success: true, author: "Stephane" })
 })
 
 router.post("/signup", async (req, res, next) => {
