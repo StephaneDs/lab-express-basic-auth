@@ -97,4 +97,22 @@ router.get("/verify", async (req, res, next) => {
   }
 })
 
+router.get("/main", isAuthenticated, async (req, res, next) => {
+  try {
+    res.status(200).json("authenticated main")
+    res.sendFile("views/auth/main.html", { root })
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.get("/private", isAuthenticated, async (req, res, next) => {
+  try {
+    res.status(200).json("authenticated private")
+    res.sendFile("views/auth/private.html", { root })
+  } catch (err) {
+    next(err)
+  }
+})
+
 module.exports = router
